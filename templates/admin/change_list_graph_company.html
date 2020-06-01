@@ -1,0 +1,90 @@
+{% extends "admin/change_list.html" %}
+{% load staticfiles %}
+{% block extrahead %}
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
+    <script>
+      var randomColorGenerator = function () {
+            return '#' + (Math.random().toString(16) + '0000000').slice(2, 8);
+        };
+        var options = {
+            responsive: true,
+            maintainAspectRatio: true,
+            legend: {
+                position: 'left'
+            },
+            title: {
+                display: true
+            },
+            animation: {
+                animateScale: true,
+                animateRotate: true
+            }
+        };
+        window.onload = function () {
+           var ctx = document.getElementById("job_profile-chart");
+            {% regroup cl.queryset|dictsort:"job_profile" by get_job_profile_display as job_profile_list %}
+            var lineChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: [{% for job_profile in job_profile_list %}'{{ job_profile.grouper }}',{% endfor %}],
+                    datasets: [{
+                        data: [{% for job_profile in job_profile_list %}'{{ job_profile.list|length }}',{% endfor %}],
+                        backgroundColor: [{% for job_profile in job_profile_list %}randomColorGenerator(),{% endfor %}]
+                    }]
+                },
+                options: options
+            });
+
+            ctx = document.getElementById("comp_status-chart");
+            {% regroup cl.queryset|dictsort:"comp_status" by comp_status as comp_status_list %}
+            lineChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: [{% for comp_status in comp_status_list %}'{{ comp_status.grouper }}',{% endfor %}],
+                    datasets: [{
+                        data: [{% for comp_status in comp_status_list %}'{{ comp_status.list|length }}',{% endfor %}],
+                        backgroundColor: [{% for comp_status in comp_status_list %}randomColorGenerator(),{% endfor %}]
+                    }]
+                }, options: options
+            });
+            
+            ctx = document.getElementById("no_of_students_applied-chart").getContext("2d");
+            {% regroup cl.queryset|dictsort:"no_of_students_applied" by no_of_students_applied as no_of_students_applied_list %}
+            lineChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ["Microsoft", "Directi", "GOOGLE", "BRISTLECONE", "METTL","DELLOITE","RAYTHEONE","Amazon","AppLabs","Hewlett-Packard","Northrop Grumman","Goldman Shacks",],
+                    datasets: [{
+                     label: "NO OF STUDENTS REGISTERED",
+                     backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#F39C12","#78281F","#0E6655","#283747 ","#AAB7B8","#196F3D","#D68910"],
+                    data: [23,6,7,3,0,0,5,10,80,80,110,90]
+                    }]
+                    
+                }, options: options
+            });
+             
+        }
+</script>
+
+{% endblock %}
+
+{% block content %}
+
+    <h1> Graphs </h1>
+    <hr>
+<div class="row">
+    <div class="col-sm-5">
+            <canvas id="job_profile-chart" style="width: 100px !important;"></canvas>
+        </div>
+        <div class="col-sm-5">
+            <canvas id="comp_status-chart" style="width: 100px !important;"></canvas>
+        </div>
+        <div class="col-sm-5">
+            <canvas id="no_of_students_applied-chart" style="width: 100px !important;"></canvas>
+        </div>
+</div>
+    {{ block.super }}
+{% endblock %}

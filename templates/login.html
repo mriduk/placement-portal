@@ -1,0 +1,118 @@
+{% load static %}
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+  <style>
+    body {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1 0 auto;
+    }
+
+    body {
+      background: #fff;
+    }
+
+    .input-field input[type=date]:focus + label,
+    .input-field input[type=text]:focus + label,
+    .input-field input[type=email]:focus + label,
+    .input-field input[type=password]:focus + label {
+      color: #e91e63;
+    }
+
+    .input-field input[type=date]:focus,
+    .input-field input[type=text]:focus,
+    .input-field input[type=email]:focus,
+    .input-field input[type=password]:focus {
+      border-bottom: 2px solid #e91e63;
+      box-shadow: none;
+    }
+  </style>
+</head>
+
+<body>
+<nav>
+    <div class="nav-wrapper orange lighten-3">
+      <a href="/" class="brand-logo">Placement Portal</a>
+     
+    </div>
+  </nav>
+  <div class="section"></div>
+  <main>
+    <center>
+      <img class="responsive-img" style="width: 650px;" src="{% static 'images/background4.jpg' %}" />
+      <div class="section"></div>
+
+      <h5 class="indigo-text">Please, login into your account</h5>
+      <div class="section"></div>
+
+      <div class="container">
+        <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+
+          <form class="col s12" method="post">
+          {% csrf_token %}
+          <label for="username">Enter Username:</label>  
+{{ form.username}}
+<label for="password">Enter password:</label>  
+{{ form.password}}
+
+            
+            
+             <button class="btn waves-effect waves-light" method="POST" type="submit" name="action">Submit
+    <i class="material-icons right">send</i>
+  </button>
+            
+
+         
+            
+          </form>
+        </div>
+      </div>
+  
+      <a href="{% url 'signin' %}">Create account</a><br>
+        <a href="{% url 'reset_password' %}">Forgot Password</a>
+    </center>
+
+    <div class="section"></div>
+    <div class="section"></div>
+  </main>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+</body>
+
+</html>
+{% comment %} 
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+        <title>Placement portal</title>
+        </head>
+        <body>
+
+<div class="container">
+    <h1>Welcome</h1>
+    <p>
+        You can log in here!
+    </p>
+    <h2>Login</h2>
+     <form method="post">
+        
+
+            {% csrf_token %}
+           
+           {{ form }}
+           
+
+            <button type="submit" method="POST">SUBMIT</button>
+        </form> 
+ 
+</div>
+</body>
+</html> {% endcomment %}

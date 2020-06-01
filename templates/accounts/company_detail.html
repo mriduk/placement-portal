@@ -1,0 +1,50 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+  <title>Company-Details</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{% static 'materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static 'style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+<body id="bg" style="background-image: url('{% static 'images/back2.jpg' %}')";>
+
+  <div>
+    <!-- <img src="{% static 'images/comp_back1.jpg' %}"> -->
+    
+   
+  </div> 
+  <nav>
+    <div class="nav-wrapper orange lighten-3">
+      <a href="/" class="brand-logo white-text">Placement Portal</a>
+      <!-- <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">JavaScript</a></li>
+      </ul> -->
+    </div>
+  </nav>
+  <form action="{% url 'company_cell:count_stud' company.comp_id user.username %}" method="post">
+  {% csrf_token %}
+
+  <!-- <div class='container'> -->
+   <h5>Company Id: {{ company.comp_id }}</h5>
+  <!-- </div> -->
+  <h5>Company Name: {{ company.comp_name }}</h5>
+  <!-- <input type="text" name="country" value="{{ company.comp_name }}" hidden><br> -->
+  <h5>Company Status: {{ company.comp_status }}</h5>
+  <h5>Job Profile: {{ company.job_profile }}</h5>
+  {{ form.comp_name }}
+
+  <input type="submit" class="waves-effect waves-light btn modal-trigger" value="submit">
+  </form> 
+  
+ 
+  <script type = "text/javascript"
+          src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+
+</body>
+</html>

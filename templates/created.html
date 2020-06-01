@@ -1,0 +1,36 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+  <title>Registerd</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{% static 'materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static 'style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+
+<body id="bg" style="background-image: url('{% static 'images/back2.jpg' %}')";>
+
+  <div>
+    <!-- <img src="{% static 'images/comp_back1.jpg' %}"> -->
+    
+   
+  </div> 
+  <nav>
+    <div class="nav-wrapper orange lighten-3">
+      <a href="/" class="brand-logo white-text">Placement Portal</a>
+  
+    </div>
+  </nav>
+<div class='container'>
+<h3>Thank you for registering.Check your email.</h3>
+<a href='{% url 'home' %}'>LOGIN</a>
+</div>
+  
+ 
+  <script type = "text/javascript"
+          src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+
+</body>
+</html>

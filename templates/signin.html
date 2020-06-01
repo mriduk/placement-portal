@@ -1,0 +1,294 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+<title>Sign in</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<!-- Load font awesome icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="{% static 'style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="css/slide-social-buttons.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{% static 'materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="{% static 'style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="css/slide-social-buttons.css">
+<style>
+body {margin:0;height:200px;}
+
+.icon-bar {
+  position: fixed;
+  top: 50%;
+  right:0%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 20px;
+}
+
+.icon-bar a:hover {
+  background-color: #000;
+}
+
+.facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.google {
+  background: #dd4b39;
+  color: white;
+}
+
+.linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.content {
+  margin-left: 75px;
+  font-size: 30px;
+}
+
+
+
+
+#jumbo{
+background: linear-gradient(-45deg, #FF7F50, #FF8C00, #E9967A, #DEB887);
+  animation: gradient 15s ease infinite;
+}
+
+ @keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	} 
+}
+</style>
+</head>
+<body>
+
+
+
+
+
+
+
+
+<div class="icon-bar">
+  <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+  <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+  <a href="#" class="google"><i class="fa fa-google"></i></a>
+  <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+  <a href="#" class="youtube"><i class="fa fa-youtube"></i></a>
+</div>
+
+<div class="jumbotron jumbotron-fluid" id="jumbo">
+  <div class="container">
+    <h1 class="display-4">Create your account</h1>
+    <p class="lead">Join for free to have a hassel free placement.</p>
+   
+  </div>
+</div>
+
+
+  
+  
+<div class="row">
+    <div class="col s6 offset-s6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">Hey!</span>
+          <p>It's time to start living the life we've imagined. —Henry James</p>
+        </div>
+        <div class="card-action">
+          <a href="/">Home</a>
+          <a href="{% url 'login' %}">Login</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<div class='container'>
+<form method="post" class="needs-validation" novalidate>
+{% csrf_token %}
+
+ <div class="form-group row">
+    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">First Name</label>
+    <div class="col-sm-10">
+      {{ form.username}} 
+    </div>
+    <div class="valid-tooltip">
+        Looks good!
+      </div>
+      </div>
+
+ <div class="form-group row">
+    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Name</label>
+    <div class="col-sm-10">
+      {{ profile_form.name }}  
+    </div>
+    <div class="valid-tooltip">
+        Looks good!
+      </div>
+      </div>
+
+      <div class="form-group row">
+    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Email</label>
+    <div class="col-sm-10">
+      {{ profile_form.email }}  
+    </div>
+    <div class="valid-tooltip">
+        Looks good!
+      </div>
+      </div>
+
+      <div class="form-group row">
+    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Password</label>
+    <div class="col-sm-10">
+      {{ form.password1 }}  
+    </div>
+    <div class="valid-tooltip">
+        Looks good!
+      </div>
+      </div>
+
+      <div class="form-group row">
+    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Confirmation Password</label>
+    <div class="col-sm-10">
+      {{ form.password2 }}   
+    </div>
+    <div class="valid-tooltip">
+        Looks good!
+      </div>
+      </div>
+
+
+      <div class="form-group row">
+    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">University Registeration Number</label>
+    <div class="col-sm-10">
+      {{ profile_form.regno }}   
+    </div>
+    <div class="valid-tooltip">
+        Looks good!
+      </div>
+      </div>
+
+
+
+    
+
+
+
+      <div class="form-group row">
+    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Course</label>
+    <div class="col-sm-10">
+      {{ profile_form.course }}   
+    </div>
+    <div class="valid-tooltip">
+        Looks good!
+      </div>
+      </div>
+
+      <div class="form-group row">
+    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Branch</label>
+    <div class="col-sm-10">
+      {{ profile_form.branch }}   
+    </div>
+    <div class="valid-tooltip">
+        Looks good!
+      </div>
+      </div>
+
+      <div class="form-group row">
+    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">CGPA(out of 10)</label>
+    <div class="col-sm-10">
+      {{ profile_form.cgpa }}   
+    </div>
+    <div class="valid-tooltip">
+        Looks good!
+      </div>
+      </div>
+
+      <div class="form-group row">
+    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Backlogs(if any)</label>
+    <div class="col-sm-10">
+      {{ profile_form.backlogs }}   
+    </div>
+    <div class="valid-tooltip">
+        Looks good!
+      </div>
+      </div>
+
+      <div class="form-group row">
+    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Your Phone Number</label>
+    <div class="col-sm-10">
+      {{ profile_form.phno }}   
+    </div>
+    <div class="valid-tooltip">
+        Looks good!
+      </div>
+      </div>
+
+      <div class="form-group row">
+    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Gardian Name</label>
+    <div class="col-sm-10">
+      {{ profile_form.parent_name }}   
+    </div>
+    <div class="valid-tooltip">
+        Looks good!
+      </div>
+      </div>
+
+      <div class="form-group row">
+    <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Gardian's Phone Number</label>
+    <div class="col-sm-10">
+      {{ profile_form.parent_phno }}   
+    </div>
+    <div class="valid-tooltip">
+        Looks good!
+      </div>
+      </div>
+            
+           
+           <button class="btn btn-primary" type="submit" action={% url 'signin' %} method="POST">Submit</button>
+</form>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" integrity="sha256-qM7QTJSlvtPSxVRjVWNM2OfTAz/3k5ovHOKmKXuYMO4=" crossorigin="anonymous"></script>
+
+</body>
+</html>
+   
+
+

@@ -1,0 +1,56 @@
+{% load static %}
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+
+
+</head>
+
+<body>
+<nav>
+    <div class="nav-wrapper orange lighten-3">
+      <a href="/" class="brand-logo">Placement Portal</a>
+     
+    </div>
+</nav>
+
+  <table class="highlight">
+  
+        <thead>
+          <tr>
+          <th>Company ID</th>
+              <th>Company Name</th>
+              <th>Job Profile</th>
+              <th>No of students applied</th>
+              
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+          <td>{{ Student.regno }}</td>
+            <td>{{ Student.name }}</td>
+            <td>{{ user.regno }}</td>
+            <td>{{ Student.regno }}</td>
+            
+            
+            <td><a href="{% url 'company_cell:comp_detail' company.comp_id %}">Apply</a></td>
+          </tr>
+        </tbody>
+      
+      </table>
+
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+</body>
+
+</html>
+{% comment %} <h1>{{ Student.regno }}</h1>
+<h1>{{ Student.name }}</h1>
+
+<h1>{{ user.regno }}</h1>
+<h1>{{ Student.regno }}</h1> {% endcomment %}

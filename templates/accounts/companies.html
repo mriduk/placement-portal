@@ -1,0 +1,110 @@
+{% load static %}
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+
+
+</head>
+
+<body>
+<nav>
+    <div class="nav-wrapper orange lighten-3">
+      <a href="/" class="brand-logo">Placement Portal</a>
+     
+    </div>
+</nav>
+
+  <table class="highlight">
+  {% if companies_list %}
+  {% for company in companies_list %}
+        <thead>
+          <tr>
+          <th>Company ID</th>
+              <th>Company Name</th>
+              <th>Job Profile</th>
+              <th>No of students applied</th>
+              <th>Status</th>
+              <th>Apply </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+          <td>{{ company.comp_id }}</td>
+            <td>{{ company.comp_name }}</td>
+            <td>{{ company.job_profile }}</td>
+            <td>{{ company.no_of_students_applied }}</td>
+            <td>{{ company.comp_status }}</td>
+            
+            <td><a href="{% url 'company_cell:comp_detail' company.comp_id %}">Apply</a></td>
+          </tr>
+        </tbody>
+        {% endfor %}
+    
+{% else %}
+    <p>No Companies are available.</p>
+{% endif %}
+      </table>
+
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+</body>
+
+</html>
+
+     
+          
+ 
+  {% comment %} {% if companies_list %}
+    <ul>
+    {% for company in companies_list %}
+        <li><a href="{% url 'company_cell:comp_detail' company.comp_id %}">{{ company.comp_name }} {{ company.job_profile}} {{ company.comp_id }} {{ company.comp_status }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Companies are available.</p>
+{% endif %} {% endcomment %}
+ 
+
+
+
+
+
+{% comment %} <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Companies</title>
+    </head>
+    <body>
+        <h1>List of Companies</h1>
+        
+        <table border=1>
+            <tr>
+
+                <th>Company id</th>
+                <th>Company name</th>
+                <th>Profile</th>
+                <th>Status</th>
+                <th>Apply</th>
+            </tr>
+            {% for company in allCompanies %}
+            <tr>
+                <td>{{ company.comp_id }}</td>
+                <td>{{ company.comp_name }}</td>
+                <td>{{ company.job_profile }}</td>
+                <td>{{ company.comp_status }}</td>
+                <td><a href="{% url 'company_cell:DetailView' %}">REGISTER</a></td>
+            </tr>
+            {% endfor %}              
+        </table>
+        
+            
+
+        
+    </body>
+    </html>
+ {% endcomment %}

@@ -1,0 +1,79 @@
+{% comment %}     
+   
+        {{ stud1.name }}
+        <br>
+        {{ stud1.regno }}
+        
+        
+
+ {% endcomment %}
+{% load static %}
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+
+
+</head>
+
+<body>
+<nav>
+    <div class="nav-wrapper orange lighten-3">
+      <a href="/" class="brand-logo">Placement Portal</a>
+     
+    </div>
+</nav>
+<h1>YOUR PROFILE</h2>
+  <table class="highlight">
+  
+        <thead>
+          <tr>
+          <th>Registeration ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Branch</th>
+              <th>Course</th>
+           
+              <th>Mobile No</th>
+              <th>CGPA</th>
+              <th>Backlogs</th>
+              <th>Gardian Name</th>
+              <th>Gardian Phone number</th>
+              
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+          <td>{{ stud1.regno }}</td>
+            <td>{{ stud1.name }}</td>
+            <td>{{ stud1.email }}</td>
+            <td>{{ stud1.branch }}</td>
+            <td>{{ stud1.course }}</td>
+            
+            <td>{{ stud1.phno }}</td>
+            <td>{{ stud1.cgpa }}</td>
+            <td>{{ stud1.backlogs }}</td>
+            <td>{{ stud1.parent_name }}</td>
+            <td>{{ stud1.parent_phno }}</td>
+            
+            
+          
+          </tr>
+        </tbody>
+      
+      </table>
+
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+</body>
+
+</html>
+{% comment %} <h1>{{ Student.regno }}</h1>
+<h1>{{ Student.name }}</h1>
+
+<h1>{{ user.regno }}</h1>
+<h1>{{ Student.regno }}</h1> {% endcomment %}
